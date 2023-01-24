@@ -1,0 +1,31 @@
+<h2>{{titulo}}</h2>
+<div class="row">
+    <div class="col-6">
+        <form (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-htoup col-6">
+                    <label for="">Nombre:</label>
+                    <input type="text" 
+                    class="form-control" 
+                    name="nombre"
+                    [(ngModel)]="estudiante.nombre">
+                          <!-- no olvidarse del name -->
+                </div>
+                <div class="form-htoup col-6">
+                    <label for="">Apellido:</label>
+                    <input type="text" 
+                    name="apellido"
+                    
+                    class="form-control" 
+                    [(ngModel)]="estudiante.apellido">
+                    
+                          <!-- no olvidarse del name -->
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-danger" type="button" (click)="actualizate()">Actualizar Form</button>
+
+        </form>
+    </div>
+</div>
+<pre>{{estudiante | json}}</pre>

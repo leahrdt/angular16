@@ -1,0 +1,26 @@
+<h2>{{titulo}}</h2>
+<div class="row">
+    <div class="col-6">
+        <form [formGroup]="formAngular" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="form-htoup col-6">
+                    <label for="">Nombre:</label>
+                    <!-- El formControlName es Necesario!!!! -->
+                    <input type="text" class="form-control" 
+                    formControlName="nombre">
+                          <!-- formControlName tiene que tener el mismo nombre que en el componente.ts ej: 001 -->
+                </div>
+                <div class="form-htoup col-6">
+                    <label for="">Apellido:</label>
+                    <input type="text" class="form-control" 
+                    formControlName="apellido">
+                          <!-- formControlName tiene que tener el mismo nombre que en el componente.ts ej: 002 -->
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+            <button class="btn btn-danger" type="button" (click)="actualizate()">Actualizar Form</button>
+
+        </form>
+    </div>
+</div>
+<pre>{{formAngular.value | json}}</pre>

@@ -1,0 +1,29 @@
+<h1>{{titulo}}</h1>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>
+                Id 
+            </th>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Director
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pelicula of peliculas">
+            <td>
+                {{pelicula.id}}
+            </td>
+            <td>
+                {{pelicula.titulo}}
+            </td>
+            <td>
+                {{pelicula.director}}
+            </td>
+        </tr>
+    </tbody>
+</table>

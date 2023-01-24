@@ -1,0 +1,28 @@
+<div>
+<h4>listado de estudiantes!</h4>
+<!-- tabla de estudiantes -->
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Edad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- show objet estudiantes -->
+    
+    <tr *ngFor="let estudiante of estudiantes" (click)="verDetalleEstudiante(estudiante)">
+      <th scope="row">{{estudiante.nombre}}</th>
+      <td>{{estudiante.legajo}}</td>
+      <td>{{estudiante.materia}}</td>
+      <td>{{estudiante.regular}}</td>
+    </tr>
+  </tbody>
+</table>
+  <div *ngIf="estudianteSeleccionado">  
+    <app-detalle [estudiante]="estudianteSeleccionado"></app-detalle>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+    <h3>{{titulo}}</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Nombre:</label>
+                <input type="text" class="form-control" 
+                name="nombre" 
+                [(ngModel)]="estudiante.nombre" 
+                (keyup)="mostrarEstudiante"
+                >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Legajo:</label>
+                <input type="number" 
+                class="form-control" 
+                name="legajo" 
+                [(ngModel)]="estudiante.legajo" 
+                >
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="">Materia:</label>
+                <input type="text" 
+                class="form-control" 
+                name="materia" 
+                [(ngModel)]="estudiante.materia" 
+                >
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-lg" (click)="altoClick()">Modificar</button>
+</div>

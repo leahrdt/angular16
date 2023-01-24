@@ -1,0 +1,53 @@
+<h2>{{titulo}}</h2>
+<!-- #peliForm="ngForm" es para poder acceder a la variable peliForm desde el componente -->
+<form #peliForm="ngForm" (ngSubmit)="enviarFormulario()" >
+<div class="row">
+    <div class="col-6">
+            <div class="row">
+                <div class="form-htoup col-6">
+                    <label for="">Titulo:</label>
+                   <!-- #nombree="ngModel" es para poder acceder a la variable nombree desde el componente -->
+                    <input 
+                    type="text" 
+                    class="form-control" 
+                    name="titulo"
+                    required
+                    maxlength="20"
+                    minlength="3"
+                    #nombree="ngModel"
+                    [(ngModel)]="pelicula.titulo">
+                    <!-- hidden, indica que va a estar oculto, salvo que, el html que tenga #nombree sea .valid o .pristine (clases que se ven cuando inpeccinas el elemento) --> 
+                    <div [hidden]="nombree.valid || nombree.pristine" class="lert alert-danger">
+                        Debe completar el nombre
+                    </div>
+                </div>
+                <div class="form-htoup col-6">
+                    <label for="">Director:</label>
+                    <input type="text" 
+                    name="director"
+                    class="form-control" 
+                    [(ngModel)]="pelicula.director">
+                    
+                          <!-- no olvidarse del name -->
+                </div>
+ 
+                <div class="form-htoup col-6">
+                    <label for="">Genero:</label>
+                    <!-- Select, con options de generos -->
+                    <select name="genero" class="form-control" [(ngModel)]="pelicula.genero">
+                        <option *ngFor="let genero of generos" [value]="genero.valor">{{genero.tipo}}</option>
+                    </select>
+                    
+                </div>
+            </div>
+            <!-- [disable]="!peliForm.form.valid" es para que el boton se desactive si el formulario no es valido -->
+            <button 
+            class="btn btn-primary" type="submit" 
+            [disabled]="!peliForm.form.valid">Guardar</button>
+
+            <button class="btn btn-danger" type="button" (click)="actualizate()">Actualizar Form</button>
+
+    </div>
+</div>
+</form>
+<pre>{{pelicula | json}}</pre>
